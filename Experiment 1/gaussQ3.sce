@@ -24,6 +24,9 @@ y = exp(-x.^2/2)/sqrt(2*%pi);
 //plot on prev graphics screen for comparison
 plot2d(x,y,style=5)
 
+legend(["Generated Gaussian Distribution", "Expected Distribution"], "lower_caption");
+xtitle("Generated Gaussian Distribution and the Expected Distribution");
+
 meanX = 0;
 meanK = 0;
 stdDevK = 0;

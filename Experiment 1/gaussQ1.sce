@@ -22,7 +22,9 @@ x = linspace(Xmin,Xmax,100)';
 y = exp(-x.^2/2)/sqrt(2*%pi);
 
 //plot on prev graphics screen for comparison
-plot2d(x,y,style=5)
+plot2d(x,y,style=5);
+legend(["Generated Gaussian Distribution", "Expected Distribution"], "lower_caption");
+xtitle("Generated Gaussian Distribution and the Expected Distribution");
 
 meanX = 0;
 for i = 1 : n

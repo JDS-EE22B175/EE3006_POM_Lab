@@ -3,17 +3,22 @@ scf();
 subplot(2,2,1)
 r = rand(10000,1,"uniform");
 pdfRCalc = histplot(100,r,normalization=%t);
+legend("Generated Gaussian Distribution", "lower_caption");
+xtitle("Generated Gaussian Distribution");
+
 
 subplot (2,2,2)
 t = rand(10000,1,"uniform");
 pdfTCalc = histplot(100,t,normalization=%t);
-//clear and use the current graphic screen
+legend("Generated Gaussian Distribution", "lower_caption");
+xtitle("Generated Gaussian Distribution");
 
 z = r+t;
 
 pdfZCalc = convol(pdfRCalc, pdfTCalc);
 normalizingFactor = max(pdfZCalc);
-pdfZCalc = pdfZCalc./normalizingFactor
+pdfZCalc = pdfZCalc./normalizingFactor;
+
 //plot the histgram of rNo values with 100 bins, set normalization flag true
 //set this flag to false or %f to see the actual number of events in each bin!
 subplot(2,2,3)
@@ -30,6 +35,8 @@ x = linspace(Zmin,Zmax,199)';
 //plot on prev graphics screen for comparison
 
 plot2d(x,pdfZCalc,style=5)
+legend(["Sum of 2 Gaussian Distributions", "Convolved PDF of 2 Uniform Distributions"], "lower_caption");
+xtitle("Normalized Sum of 2 Gaussian Distributions and the Convolved PDF");
 
 //built-in mean and stdev
 //type in console xbar and std to see their values

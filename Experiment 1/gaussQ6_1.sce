@@ -17,5 +17,4 @@ t5=rand(n,1,"normal");
 x=(r1+r2+r3+r4+r5+t1+t2+t3+t4+t5)./10;
 
 histplot(100,x,normalization=%t);
-
-
+xtitle('Sum of 5 Gaussian and 5 Uniform Distributions')

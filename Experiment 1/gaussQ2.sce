@@ -24,31 +24,37 @@ y = exp(-x.^2/2)/sqrt(2*%pi);
 //plot on prev graphics screen for comparison
 plot2d(x,y,style=5)
 
+legend(["Generated Gaussian Distribution", "Expected Distribution"], "lower_caption");
+xtitle("Generated Gaussian Distribution and the Expected Distribution");
 
 //built-in mean and stdev
 //type in console xbar and std to see their values
 xbar=mean(r)
 std=stdev(r)
 
-oneStdDev = 0
-twoStdDev = 0
-threeStdDev = 0
+oneStdDev = 0;
+twoStdDev = 0;
+threeStdDev = 0;
 
 for i = 1 : n
 	if (abs(r(i) - xbar) > std) then
-    	oneStdDev = oneStdDev + 1
+    	oneStdDev = oneStdDev + 1;
     end
     if (abs(r(i) - xbar) > 2 * std) then
-    	twoStdDev = twoStdDev + 1
+    	twoStdDev = twoStdDev + 1;
     end
     if (abs(r(i) - xbar) > 3 * std) then
-    	threeStdDev = threeStdDev + 1
+    	threeStdDev = threeStdDev + 1;
     end
 end
 
-oneStdDev = oneStdDev / n
-twoStdDev = twoStdDev / n
-threeStdDev = threeStdDev / n
+oneStdDev = oneStdDev / n;
+twoStdDev = twoStdDev / n;
+threeStdDev = threeStdDev / n;
+
+disp("The expected fraction of elements to lie within one σ of the mean is 0.32, the calculated value is " + string(oneStdDev));
+disp("The expected fraction of elements to lie within one 2σ of the mean is 0.05, the calculated value is " + string(twoStdDev));
+disp("The expected fraction of elements to lie within one 3σ of the mean is 0.003, the calculated value is " + string(threeStdDev));
 
 // For a normal distribution, we know that:
 // About 68% of the data lies within 1σ from the mean. ~ 0.32
